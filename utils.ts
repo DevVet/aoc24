@@ -3,10 +3,7 @@ type DayModule = {
   part2: () => void;
 };
 
-type PlayFunction = (
-  day: { part1: () => void; part2: () => void },
-  flag?: string
-) => void;
+type PlayFunction = (day: DayModule, flag?: string) => void;
 
 export const play: PlayFunction = ({ part1, part2 }, flag) => {
   if (flag === "2") {
