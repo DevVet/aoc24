@@ -1,7 +1,7 @@
 import { getTodaysLines } from "../utils.ts";
 
 /**
- * Solumtions
+ * Solutions
  */
 export const part1 = async () => {
   const g = (await getTodaysLines("4")).map((line) => line.split(""));
