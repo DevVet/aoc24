@@ -1,8 +1,6 @@
-import { getTodaysLines } from "../utils.ts";
-
 /**
  * Solutions
  */
-export const part1 = async () => {};
+export const part1 = async (lines: string[]) => {};
 
-export const part2 = async () => {};
+export const part2 = async (lines: string[]) => {};

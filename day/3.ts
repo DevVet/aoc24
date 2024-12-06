@@ -1,10 +1,7 @@
-import { getTodaysLines } from "../utils.ts";
-
 /**
  * Solutions
  */
-export const part1 = async () => {
-  const lines = await getTodaysLines("3");
+export const part1 = (lines: string[]) => {
   let sum = 0;
   lines.forEach((line) => {
     line.matchAll(/mul\((\d{1,3}),(\d{1,3})\)/g).forEach((match) => {
@@ -14,8 +11,7 @@ export const part1 = async () => {
   console.log(sum);
 };
 
-export const part2 = async () => {
-  const lines = await getTodaysLines("3");
+export const part2 = (lines: string[]) => {
   let sum = 0;
   let isEnabled = true;
   lines.forEach((line) => {

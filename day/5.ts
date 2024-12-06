@@ -1,5 +1,3 @@
-import { getTodaysLines } from "../utils.ts";
-
 /**
  * Types
  */
@@ -64,8 +62,7 @@ const fixUpdate =
 /**
  * Solutions
  */
-export const part1 = async () => {
-  const lines = await getTodaysLines("5");
+export const part1 = (lines: string[]) => {
   const { guide, instructions } = parseLines(lines);
 
   const answer = instructions
@@ -75,8 +72,7 @@ export const part1 = async () => {
   console.log(answer);
 };
 
-export const part2 = async () => {
-  const lines = await getTodaysLines("5");
+export const part2 = (lines: string[]) => {
   const { guide, instructions } = parseLines(lines);
 
   const answer = instructions

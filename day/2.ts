@@ -1,5 +1,3 @@
-import { getTodaysLines } from "../utils.ts";
-
 /**
  * Helpers
  */
@@ -26,8 +24,7 @@ const isSafeWithTolerance = (line: number[]): boolean => {
 /**
  * Solutions
  */
-export const part1 = async () => {
-  const lines = await getTodaysLines("2");
+export const part1 = (lines: string[]) => {
   const answer = lines.reduce<number>(
     (acc, lineStr) => (isSafe(lineStr.split(" ").map(Number)) ? acc + 1 : acc),
     0
@@ -35,8 +32,7 @@ export const part1 = async () => {
   console.log(answer);
 };
 
-export const part2 = async () => {
-  const lines = await getTodaysLines("2");
+export const part2 = (lines: string[]) => {
   const answer = lines.reduce<number>((acc, lineStr) => {
     const line = lineStr.split(" ").map(Number);
     return isSafeWithTolerance(line) ? acc + 1 : acc;

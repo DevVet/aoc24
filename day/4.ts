@@ -1,10 +1,8 @@
-import { getTodaysLines } from "../utils.ts";
-
 /**
  * Solutions
  */
-export const part1 = async () => {
-  const g = (await getTodaysLines("4")).map((line) => line.split(""));
+export const part1 = (lines: string[]) => {
+  const g = lines.map((line) => line.split(""));
   let count = 0;
   for (let r = 0; r < g.length; r++) {
     for (let c = 0; c < g[r].length; c++) {
@@ -32,8 +30,8 @@ export const part1 = async () => {
   console.log(count);
 };
 
-export const part2 = async () => {
-  const g = (await getTodaysLines("4")).map((line) => line.split(""));
+export const part2 = (lines: string[]) => {
+  const g = lines.map((line) => line.split(""));
   let count = 0;
   for (let r = 1; r < g.length - 1; r++) {
     for (let c = 1; c < g[r].length - 1; c++) {
