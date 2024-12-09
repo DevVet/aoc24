@@ -3,12 +3,15 @@
  */
 const parseLine = (
   line: string
-): { calibrationResult: number; values: string[] } => {
-  const [calibrationResultStr, values] = line.split(": ");
+): { result: number; first: number; rest: string[] } => {
+  const [calibrationResult, rest] = line.split(": ");
+  const values = rest.split(" ");
+  const first = Number(values[0]);
 
   return {
-    calibrationResult: Number(calibrationResultStr),
-    values: values.split(" "),
+    first,
+    rest: [...values.slice(1), calibrationResult],
+    result: Number(calibrationResult),
   };
 };
 
@@ -38,13 +41,10 @@ const isOperable = (
 export const part1 = (lines: string[]) => {
   let sum = 0;
   for (const line of lines) {
-    const { calibrationResult, values } = parseLine(line);
-    const isValid = isOperable(Number(values[0]), [
-      ...values.slice(1),
-      calibrationResult.toString(),
-    ]);
+    const { result, first, rest } = parseLine(line);
+    const isValid = isOperable(first, rest);
     if (isValid) {
-      sum += calibrationResult;
+      sum += result;
     }
   }
   console.log(sum);
@@ -53,13 +53,9 @@ export const part1 = (lines: string[]) => {
 export const part2 = (lines: string[]) => {
   let sum = 0;
   for (const line of lines) {
-    const { calibrationResult, values } = parseLine(line);
-    const isValid = isOperable(
-      Number(values[0]),
-      [...values.slice(1), calibrationResult.toString()],
-      true
-    );
-    if (isValid) sum += calibrationResult;
+    const { result, first, rest } = parseLine(line);
+    const isValid = isOperable(first, rest, true);
+    if (isValid) sum += result;
   }
   console.log(sum);
 };
